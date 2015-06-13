@@ -10,12 +10,15 @@
 
 @interface ViewController ()
 
+@property (weak, nonatomic) IBOutlet UILabel *LabelCounter;
+
 @end
 
 @implementation ViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.LabelCounter.text = @"Click!";
     // Do any additional setup after loading the view, typically from a nib.
 }
 
@@ -23,5 +26,9 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+- (IBAction)ButtonClick:(id)sender {
+    self.LabelCounter.text = [NSString stringWithFormat:@"%d", [self.LabelCounter.text intValue] + 1];
+}
+
 
 @end
